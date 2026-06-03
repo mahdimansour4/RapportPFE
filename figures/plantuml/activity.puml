@@ -1,0 +1,77 @@
+@startuml activity
+!theme plain
+title Parcours d'évaluation côté client
+
+skinparam defaultFontName "DejaVu Sans"
+skinparam dpi 200
+skinparam shadowing false
+skinparam backgroundColor #FFFFFF
+skinparam roundCorner 8
+skinparam padding 4
+skinparam ArrowFontSize 11
+
+skinparam activity {
+  BackgroundColor #DCE7FA
+  BorderColor #4A7FE0
+  FontColor #1A2E4D
+  ArrowColor #0F285A
+  ArrowFontColor #0F285A
+  DiamondBackgroundColor #FCE5C8
+  DiamondBorderColor #C77B19
+  DiamondFontColor #1A2E4D
+  StartColor #0F285A
+  EndColor #0F285A
+  BarColor #0F285A
+}
+skinparam partition {
+  BorderColor #6B7280
+  FontColor #1A2E4D
+  FontStyle bold
+}
+
+|Client|
+start
+:Reçoit le lien d'invitation
+par e-mail;
+:Ouvre le lien
+dans le navigateur;
+
+|Plateforme|
+:Vérifie le jeton
+(statut, date d'expiration);
+
+if (Invitation valide ?) then (oui)
+else (non)
+  :Affiche une page d'erreur
+  (expirée ou invalide);
+  stop
+endif
+
+|Client|
+:Sélectionne la langue
+(FR / EN / AR);
+:Lit la page de contexte
+de l'évaluation;
+
+repeat
+  :Répond aux questions
+  d'une section;
+repeat while (Toutes les sections complétées ?) is (non) not (oui)
+
+:Confirme et soumet
+ses réponses;
+
+|Plateforme|
+:Calcule le score
+de maturité par section;
+:Persiste la soumission
+dans PostgreSQL;
+:Marque l'invitation
+comme utilisée;
+
+|Client|
+:Affiche la page
+de remerciement;
+stop
+
+@enduml

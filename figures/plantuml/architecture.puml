@@ -1,0 +1,72 @@
+@startuml architecture
+!theme plain
+title Architecture technique de la plateforme
+
+skinparam defaultFontName "DejaVu Sans"
+skinparam dpi 200
+skinparam shadowing false
+skinparam backgroundColor #FFFFFF
+skinparam roundCorner 6
+skinparam ArrowColor #0F285A
+skinparam ArrowFontColor #0F285A
+skinparam ArrowFontSize 11
+skinparam componentStyle uml2
+skinparam Nodesep 40
+skinparam Ranksep 50
+skinparam padding 5
+
+skinparam component {
+  BackgroundColor #DCE7FA
+  BorderColor #4A7FE0
+  FontColor #1A2E4D
+  FontStyle bold
+  FontSize 12
+}
+skinparam database {
+  BackgroundColor #FFF8DC
+  BorderColor #B8860B
+  FontColor #1A2E4D
+  FontSize 12
+}
+skinparam rectangle {
+  BackgroundColor<<platform>> #F6F8FA
+  BorderColor<<platform>> #6B7280
+  BackgroundColor<<internal>> #FFF8E1
+  BorderColor<<internal>> #C77B19
+  FontColor #1A2E4D
+  FontStyle bold
+  FontSize 11
+}
+skinparam actor {
+  BackgroundColor #FFFFFF
+  BorderColor #0F285A
+  FontColor #1A2E4D
+  FontSize 11
+}
+
+actor "Client\n(répondant)" as client
+actor "Consultant /\nadministrateur DXC" as consultant
+
+rectangle "Plateforme conteneurisée (Docker Compose)" as platform <<platform>> {
+
+  component "Frontend\nNext.js 16\n(port 3000)" as frontend
+
+  component "Keycloak\n(port 8080)\nOIDC + JWT" as keycloak
+
+  rectangle "Tier applicatif (réseau Docker interne)" as internaltier <<internal>> {
+    component "Spring Boot\n(port 8000)\nLogique métier" as backend
+    component "Agent IA — FastAPI\n(port 8001)\nGénération / chat" as agent
+    database "PostgreSQL 16\n(port 5432)" as db
+  }
+}
+
+client     --> frontend  : HTTPS
+consultant --> frontend  : HTTPS
+frontend   --> keycloak  : OAuth 2.0 / PKCE
+frontend   --> backend   : REST + Bearer JWT
+frontend   --> agent     : proxy interne
+agent      --> backend   : lecture des données
+backend    --> db        : JPA / SQL
+backend    ..> keycloak  : validation JWT\nvia JWKS
+
+@enduml

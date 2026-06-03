@@ -1,0 +1,171 @@
+@startuml erd
+!theme plain
+title Schéma entité-relation — base de données PostgreSQL
+
+left to right direction
+
+skinparam defaultFontName "DejaVu Sans"
+skinparam dpi 200
+skinparam shadowing false
+skinparam backgroundColor #FFFFFF
+skinparam classAttributeIconSize 0
+skinparam linetype polyline
+skinparam padding 8
+skinparam Nodesep 60
+skinparam Ranksep 70
+skinparam ArrowFontSize 11
+skinparam defaultFontSize 12
+
+skinparam class {
+  HeaderFontColor #FFFFFF
+  FontColor #1A2E4D
+  ArrowColor #0F285A
+}
+skinparam class<<questionnaire>> {
+  BackgroundColor #DCE7FA
+  BorderColor #4A7FE0
+  HeaderBackgroundColor #4A7FE0
+}
+skinparam class<<submission>> {
+  BackgroundColor #DCEFD7
+  BorderColor #4F9E47
+  HeaderBackgroundColor #4F9E47
+}
+skinparam class<<meta>> {
+  BackgroundColor #FCE5C8
+  BorderColor #C77B19
+  HeaderBackgroundColor #C77B19
+}
+skinparam class<<report>> {
+  BackgroundColor #F5D9DC
+  BorderColor #B53A4D
+  HeaderBackgroundColor #B53A4D
+}
+
+entity "assessment_type" as atype <<questionnaire>> {
+  * id : bigint <<PK>>
+  --
+  key : varchar <<UNIQUE>>
+  label : varchar
+  logo_url : text
+  context_title : jsonb
+  context_body : jsonb
+}
+
+entity "section" as section <<questionnaire>> {
+  * id : uuid <<PK>>
+  --
+  title : jsonb
+  description : jsonb
+  assessment_type : varchar
+  "order" : int
+  is_active : boolean
+  created_at : timestamptz
+}
+
+entity "question" as question <<questionnaire>> {
+  * id : uuid <<PK>>
+  --
+  # section_id : uuid <<FK>>
+  title : jsonb
+  text : jsonb
+  question_type : varchar
+  "order" : int
+  is_active : boolean
+}
+
+entity "choice" as choice <<questionnaire>> {
+  * id : uuid <<PK>>
+  --
+  # question_id : uuid <<FK>>
+  label : jsonb
+  score : int
+  requires_text : boolean
+  "order" : int
+}
+
+entity "domain" as domain <<meta>> {
+  * id : uuid <<PK>>
+  --
+  name : varchar
+  client_name : varchar
+}
+
+entity "invitation" as invitation <<meta>> {
+  * id : uuid <<PK>>
+  --
+  token : varchar <<UNIQUE>>
+  email : varchar
+  client_name : varchar
+  assessment_type : varchar
+  mode : varchar
+  usage_type : varchar
+  allowed_section_ids : jsonb
+  expires_at : timestamptz
+  used_at : timestamptz
+}
+
+entity "submission" as submission <<submission>> {
+  * id : uuid <<PK>>
+  --
+  # invitation_id : uuid <<FK>>
+  # domain_id : uuid <<FK>>
+  email : varchar
+  client_name : varchar
+  assessment_type : varchar
+  mode : varchar
+  total_score : int
+  max_score : int
+  score_percent : int
+  maturity_level : varchar
+  lang : varchar
+  submitted_at : timestamptz
+}
+
+entity "submission_answer" as ans <<submission>> {
+  * id : uuid <<PK>>
+  --
+  # submission_id : uuid <<FK>>
+  question_id : uuid
+  question_title : varchar
+  selected_choice_ids : jsonb
+  text_answer : text
+  score : int
+  max_score : int
+}
+
+entity "report" as report <<report>> {
+  * id : uuid <<PK>>
+  --
+  # submission_id : uuid <<FK>>
+  summary : text
+  recommendations : text
+  status : varchar
+  created_at : timestamptz
+}
+
+' Layout : grille 3 colonnes
+atype     -[hidden]r- domain
+section   -[hidden]r- invitation
+question  -[hidden]r- submission
+choice    -[hidden]r- ans
+
+' Relations métier
+atype       ||..o{ section     : "par assessment_type"
+section     ||--o{ question
+question    ||--o{ choice
+domain      ||--o{ invitation
+domain      ||--o{ submission
+invitation  |o--o| submission
+submission  ||--o{ ans
+submission  ||--o| report
+
+legend bottom
+  |= Couleur |= Groupe |
+  | <back:#DCE7FA> Bleu </back> | Questionnaire (assessment_type / section / question / choice) |
+  | <back:#DCEFD7> Vert </back> | Soumissions (submission / submission_answer) |
+  | <back:#FCE5C8> Orange </back> | Méta (domain / invitation) |
+  | <back:#F5D9DC> Rouge </back> | Rapport (report) |
+endlegend
+
+@enduml

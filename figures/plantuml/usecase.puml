@@ -1,0 +1,75 @@
+@startuml usecase
+!theme plain
+title Diagramme de cas d'utilisation — plateforme DXC Digital Assessment
+
+skinparam defaultFontName "DejaVu Sans"
+skinparam dpi 200
+skinparam shadowing false
+skinparam backgroundColor #FFFFFF
+skinparam ArrowColor #0F285A
+skinparam ArrowFontColor #0F285A
+skinparam padding 4
+skinparam usecaseFontSize 11
+skinparam packageStyle rectangle
+
+skinparam actor {
+  BackgroundColor #FFFFFF
+  BorderColor #0F285A
+  FontColor #1A2E4D
+}
+skinparam usecase {
+  BackgroundColor #DCE7FA
+  BorderColor #4A7FE0
+  FontColor #1A2E4D
+}
+skinparam package {
+  BackgroundColor #F6F8FA
+  BorderColor #6B7280
+  FontColor #1A2E4D
+  FontStyle bold
+}
+
+left to right direction
+
+actor "Client" as client
+actor "Consultant" as consultant
+actor "Administrateur" as admin
+actor "Agent IA\n(secondaire)" as ai
+
+rectangle "Plateforme DXC Digital Assessment" {
+  usecase "Ouvrir un lien\nd'invitation" as UC1
+  usecase "Répondre à\nune évaluation" as UC2
+  usecase "S'authentifier" as UC3
+  usecase "Consulter les\nrésultats" as UC4
+  usecase "Générer un\nrapport client" as UC5
+  usecase "Obtenir une\nassistance" as UC6
+  usecase "Gérer les\ninvitations" as UC7
+  usecase "Administrer\nle référentiel" as UC8
+}
+
+' Client
+client --> UC1
+client --> UC2
+client --> UC6
+
+' Consultant
+consultant --> UC4
+consultant --> UC5
+consultant --> UC6
+consultant --> UC7
+
+' Administrator extends consultant scope
+admin --> UC7
+admin --> UC8
+
+' Agent IA (secondary, right side)
+UC5 <-- ai
+UC6 <-- ai
+
+' <<include>> relationships (authenticated cases)
+UC4 ..> UC3 : <<include>>
+UC5 ..> UC3 : <<include>>
+UC7 ..> UC3 : <<include>>
+UC8 ..> UC3 : <<include>>
+
+@enduml

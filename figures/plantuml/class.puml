@@ -1,0 +1,165 @@
+@startuml class
+!theme plain
+title Modèle de classes — entités JPA du backend Spring Boot
+
+left to right direction
+
+skinparam defaultFontName "DejaVu Sans"
+skinparam dpi 200
+skinparam shadowing false
+skinparam backgroundColor #FFFFFF
+skinparam classAttributeIconSize 0
+skinparam linetype polyline
+skinparam padding 10
+skinparam Nodesep 60
+skinparam Ranksep 80
+skinparam ArrowFontSize 11
+skinparam defaultFontSize 13
+skinparam ClassFontSize 14
+skinparam ClassBorderThickness 1.2
+
+skinparam class {
+  HeaderFontColor #FFFFFF
+  FontColor #1A2E4D
+  ArrowColor #0F285A
+  ArrowFontColor #0F285A
+}
+skinparam class<<questionnaire>> {
+  BackgroundColor #DCE7FA
+  BorderColor #4A7FE0
+  HeaderBackgroundColor #4A7FE0
+}
+skinparam class<<submission>> {
+  BackgroundColor #DCEFD7
+  BorderColor #4F9E47
+  HeaderBackgroundColor #4F9E47
+}
+skinparam class<<meta>> {
+  BackgroundColor #FCE5C8
+  BorderColor #C77B19
+  HeaderBackgroundColor #C77B19
+}
+skinparam class<<report>> {
+  BackgroundColor #F5D9DC
+  BorderColor #B53A4D
+  HeaderBackgroundColor #B53A4D
+}
+
+' ===== Ligne 1 : top-level entities =====
+together {
+  class AssessmentType <<questionnaire>> {
+    +id : Long
+    +key : String
+    +label : String
+    +logo_url : String
+    +context_title : JSONB
+    +context_body : JSONB
+  }
+  class Domain <<meta>> {
+    +id : UUID
+    +name : String
+    +client_name : String
+  }
+}
+
+' ===== Ligne 2 : références / regroupements =====
+together {
+  class Section <<questionnaire>> {
+    +id : UUID
+    +title : JSONB
+    +description : JSONB
+    +assessment_type : String
+    +order : int
+    +is_active : boolean
+  }
+  class Invitation <<meta>> {
+    +id : UUID
+    +token : String
+    +email : String
+    +assessment_type : String
+    +mode : String
+    +usage_type : String
+    +allowed_section_ids : JSONB
+    +expires_at : Instant
+    +used_at : Instant
+  }
+  class Submission <<submission>> {
+    +id : UUID
+    +email : String
+    +client_name : String
+    +assessment_type : String
+    +mode : String
+    +total_score : int
+    +max_score : int
+    +score_percent : int
+    +maturity_level : String
+    +lang : String
+    +submitted_at : Instant
+  }
+}
+
+' ===== Ligne 3 : feuilles =====
+together {
+  class Question <<questionnaire>> {
+    +id : UUID
+    +title : JSONB
+    +text : JSONB
+    +question_type : Enum
+    +is_active : boolean
+  }
+  class SubmissionAnswer <<submission>> {
+    +id : UUID
+    +question_id : UUID
+    +question_title : String
+    +selected_choice_ids : JSONB
+    +text_answer : String
+    +score : int
+    +max_score : int
+  }
+  class Report <<report>> {
+    +id : UUID
+    +submission_id : UUID
+    +summary : TEXT
+    +recommendations : TEXT
+    +status : String
+    +created_at : Instant
+  }
+}
+
+' ===== Ligne 4 : tout en bas =====
+class Choice <<questionnaire>> {
+  +id : UUID
+  +label : JSONB
+  +score : int
+  +requires_text : boolean
+}
+
+' Forcer l'alignement horizontal par ligne
+AssessmentType -[hidden]r- Domain
+Section        -[hidden]r- Invitation
+Invitation     -[hidden]r- Submission
+Question       -[hidden]r- SubmissionAnswer
+SubmissionAnswer -[hidden]r- Report
+
+' Relations métier (verticales)
+AssessmentType ||..o{ Section
+Section "1" *-- "1..*" Question
+Question "1" *-- "2..*" Choice
+Submission "1" *-- "1..*" SubmissionAnswer
+Submission "1" -- "0..1" Report
+SubmissionAnswer "0..*" --> "1" Question
+
+' Méta liens
+Domain "1" -- "0..*" Invitation
+Domain "1" -- "0..*" Submission
+Invitation "0..1" -- "0..1" Submission
+
+legend bottom
+  |= Couleur |= Groupe |
+  | <back:#DCE7FA> Bleu </back> | Référentiel (AssessmentType, Section, Question, Choice) |
+  | <back:#DCEFD7> Vert </back> | Soumissions (Submission, SubmissionAnswer) |
+  | <back:#FCE5C8> Orange </back> | Méta (Domain, Invitation) |
+  | <back:#F5D9DC> Rouge </back> | Rapports (Report) |
+endlegend
+
+@enduml

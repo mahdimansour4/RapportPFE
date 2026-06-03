@@ -1,0 +1,63 @@
+@startuml auth-sequence
+!theme plain
+title Flux d'authentification — OAuth 2.0 / PKCE avec Keycloak
+
+skinparam defaultFontName "DejaVu Sans"
+skinparam dpi 200
+skinparam shadowing false
+skinparam backgroundColor #FFFFFF
+skinparam ArrowFontSize 11
+skinparam ArrowColor #0F285A
+skinparam ArrowFontColor #0F285A
+skinparam sequenceMessageAlign center
+skinparam roundCorner 6
+skinparam padding 4
+
+skinparam participant {
+  BackgroundColor #DCE7FA
+  BorderColor #4A7FE0
+  FontColor #1A2E4D
+  FontStyle bold
+}
+skinparam actor {
+  BackgroundColor #FFFFFF
+  BorderColor #0F285A
+  FontColor #1A2E4D
+}
+skinparam sequence {
+  GroupBorderColor #6B7280
+  GroupBackgroundColor #F3F4F6
+  LifeLineBorderColor #0F285A
+  LifeLineBackgroundColor #FFFFFF
+}
+
+actor "Utilisateur" as user
+participant "Frontend\nNext.js" as front
+participant "Keycloak\n(IdP)" as kc
+participant "Backend\nSpring Boot" as back
+
+== Demande de connexion ==
+user -> front : 1. Clique « Se connecter »
+front -> front : 2. Génère code_verifier\n+ code_challenge (PKCE)
+front -> kc    : 3. Redirect /authorize\n(client_id, code_challenge)
+
+== Authentification chez l'IdP ==
+user -> kc     : 4. Saisit identifiants
+kc -> kc       : 5. Vérifie + crée\nun authorization_code
+kc --> front   : 6. Redirect avec code
+
+== Échange code → jeton ==
+front -> kc    : 7. POST /token\n(code, code_verifier)
+kc -> kc       : 8. Vérifie le PKCE
+kc --> front   : 9. Access token (JWT)\n+ refresh token
+
+== Appel API authentifié ==
+user -> front  : 10. Action protégée
+front -> back  : 11. GET /resource\n(Authorization: Bearer JWT)
+back -> kc     : 12. Récupère les clés (JWKS)
+kc --> back    : 13. Clés publiques
+back -> back   : 14. Vérifie signature\n+ extrait rôles
+back --> front : 15. Réponse autorisée
+front --> user : 16. Affiche le contenu
+
+@enduml

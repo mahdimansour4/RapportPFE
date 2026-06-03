@@ -1,0 +1,109 @@
+\xpginauxfiletrue 
+\addvspace {10\p@ }
+\setforeignlanguage {french}
+\contentsline {table}{\numberline {1.1}{\ignorespaces Chiffres clés et repères de DXC Technology et de sa filiale marocaine.}}{5}{table.caption.10}%
+\setforeignlanguage {french}
+\contentsline {table}{\numberline {1.2}{\ignorespaces Domaines d'activité DXC Technology Maroc en lien avec le projet.}}{5}{table.caption.11}%
+\setforeignlanguage {french}
+\setforeignlanguage {french}
+\contentsline {table}{\numberline {1.3}{\ignorespaces Comparaison entre le fonctionnement initial et la solution proposée pour le processus d'évaluation.}}{7}{table.caption.13}%
+\setforeignlanguage {french}
+\contentsline {table}{\numberline {1.4}{\ignorespaces Enjeux principaux associés à la digitalisation du processus d'évaluation.}}{8}{table.caption.14}%
+\setforeignlanguage {french}
+\addvspace {10\p@ }
+\setforeignlanguage {french}
+\setforeignlanguage {french}
+\contentsline {table}{\numberline {2.1}{\ignorespaces Cérémonies Scrum adaptées au cadre du projet.}}{13}{table.caption.17}%
+\setforeignlanguage {french}
+\contentsline {table}{\numberline {2.2}{\ignorespaces Répartition des rôles au sein de l'équipe projet et contribution associée.}}{14}{table.caption.18}%
+\contentsline {table}{\numberline {2.3}{\ignorespaces Backlog global des principales fonctionnalités de la plateforme.}}{14}{table.2.3}%
+\setforeignlanguage {french}
+\contentsline {table}{\numberline {2.4}{\ignorespaces Critères d'acceptation utilisés pour valider les fonctionnalités livrées.}}{16}{table.caption.19}%
+\setforeignlanguage {french}
+\contentsline {table}{\numberline {2.5}{\ignorespaces Planification des quatre versions du projet, avec leurs jalons et objectifs principaux.}}{17}{table.caption.20}%
+\setforeignlanguage {french}
+\setforeignlanguage {french}
+\contentsline {table}{\numberline {2.6}{\ignorespaces Principaux risques projet identifiés et mesures de réduction associées.}}{19}{table.caption.22}%
+\setforeignlanguage {french}
+\contentsline {table}{\numberline {2.7}{\ignorespaces Pratiques d'assurance qualité appliquées durant la réalisation du projet.}}{20}{table.caption.23}%
+\addvspace {10\p@ }
+\setforeignlanguage {french}
+\contentsline {table}{\numberline {3.1}{\ignorespaces Besoins fonctionnels identifiés pour couvrir les parcours client, administrateur et consultant.}}{22}{table.caption.24}%
+\setforeignlanguage {french}
+\contentsline {table}{\numberline {3.2}{\ignorespaces Besoins non fonctionnels et critères associés.}}{23}{table.caption.25}%
+\setforeignlanguage {french}
+\contentsline {table}{\numberline {3.3}{\ignorespaces Catégories de données manipulées par la plateforme.}}{24}{table.caption.26}%
+\setforeignlanguage {french}
+\contentsline {table}{\numberline {3.4}{\ignorespaces Acteurs du système et interactions principales avec la plateforme.}}{24}{table.caption.27}%
+\setforeignlanguage {french}
+\setforeignlanguage {french}
+\contentsline {table}{\numberline {3.5}{\ignorespaces Description synthétique des principaux cas d'utilisation.}}{26}{table.caption.29}%
+\setforeignlanguage {french}
+\contentsline {table}{\numberline {3.6}{\ignorespaces Cas d'utilisation détaillé~: répondre à une évaluation.}}{26}{table.caption.30}%
+\setforeignlanguage {french}
+\contentsline {table}{\numberline {3.7}{\ignorespaces Cas d'utilisation détaillé~: gérer les invitations.}}{27}{table.caption.31}%
+\setforeignlanguage {french}
+\contentsline {table}{\numberline {3.8}{\ignorespaces Cas d'utilisation détaillé~: générer un rapport client.}}{28}{table.caption.32}%
+\setforeignlanguage {french}
+\setforeignlanguage {french}
+\addvspace {10\p@ }
+\setforeignlanguage {french}
+\setforeignlanguage {french}
+\setforeignlanguage {french}
+\contentsline {table}{\numberline {4.1}{\ignorespaces Organisation des principaux modules frontend et responsabilités associées.}}{36}{table.caption.37}%
+\setforeignlanguage {french}
+\contentsline {table}{\numberline {4.2}{\ignorespaces Niveaux d'organisation de la partie frontend.}}{36}{table.caption.38}%
+\setforeignlanguage {french}
+\contentsline {table}{\numberline {4.3}{\ignorespaces Répartition des responsabilités entre le frontend et le module Agent IA.}}{38}{table.caption.40}%
+\setforeignlanguage {french}
+\setforeignlanguage {french}
+\contentsline {table}{\numberline {4.4}{\ignorespaces Jobs de la pipeline GitHub Actions et vérifications associées.}}{41}{table.caption.41}%
+\setforeignlanguage {french}
+\contentsline {table}{\numberline {4.5}{\ignorespaces Synthèse des tests et vérifications réalisés durant le projet.}}{42}{table.caption.42}%
+\addvspace {10\p@ }
+\setforeignlanguage {french}
+\setforeignlanguage {french}
+\contentsline {table}{\numberline {5.1}{\ignorespaces Périmètre fonctionnel de la version V1~: socle applicatif et fonctionnalités cœur livrées au 31 mars 2026.}}{45}{table.caption.44}%
+\setforeignlanguage {french}
+\setforeignlanguage {french}
+\setforeignlanguage {french}
+\setforeignlanguage {french}
+\setforeignlanguage {french}
+\setforeignlanguage {french}
+\contentsline {table}{\numberline {5.2}{\ignorespaces Périmètre fonctionnel de la version V2~: intégration des fonctions de l'Agent IA et refonte du tableau de bord analytique.}}{49}{table.caption.50}%
+\setforeignlanguage {french}
+\setforeignlanguage {french}
+\setforeignlanguage {french}
+\contentsline {table}{\numberline {5.3}{\ignorespaces Périmètre fonctionnel de la version V3~: copilote d'administration, sécurisation et industrialisation.}}{51}{table.caption.53}%
+\setforeignlanguage {french}
+\contentsline {table}{\numberline {5.4}{\ignorespaces Périmètre fonctionnel de la version V4~: multilinguisme bout en bout pour l'IA et édition contrôlée des brouillons.}}{52}{table.caption.54}%
+\setforeignlanguage {french}
+\setforeignlanguage {french}
+\contentsline {table}{\numberline {5.5}{\ignorespaces Bilan fonctionnel des modules réalisés.}}{54}{table.caption.56}%
+\setforeignlanguage {french}
+\contentsline {table}{\numberline {5.6}{\ignorespaces Principales difficultés rencontrées et réponses apportées.}}{55}{table.caption.57}%
+\setforeignlanguage {french}
+\contentsline {table}{\numberline {5.7}{\ignorespaces Synthèse quantitative des tests automatisés et des vérifications manuelles réalisés sur la plateforme.}}{56}{table.caption.59}%
+\setforeignlanguage {french}
+\setforeignlanguage {french}
+\setforeignlanguage {french}
+\setforeignlanguage {french}
+\setforeignlanguage {french}
+\contentsline {table}{\numberline {5.8}{\ignorespaces Axes de validation appliqués à la plateforme.}}{59}{table.caption.64}%
+\addvspace {10\p@ }
+\setforeignlanguage {french}
+\contentsline {table}{\numberline {A.1}{\ignorespaces Cartographie des principaux endpoints REST de la plateforme.}}{67}{table.A.1}%
+\contentsline {table}{\numberline {A.2}{\ignorespaces Colonnes principales des entités persistées dans la base PostgreSQL.}}{68}{table.A.2}%
+\setforeignlanguage {french}
+\setforeignlanguage {french}
+\setforeignlanguage {french}
+\setforeignlanguage {french}
+\contentsline {table}{\numberline {A.3}{\ignorespaces Échelle de maturité utilisée pour qualifier le score d'une évaluation.}}{72}{table.caption.71}%
+\setforeignlanguage {french}
+\setforeignlanguage {french}
+\setforeignlanguage {french}
+\setforeignlanguage {french}
+\setforeignlanguage {french}
+\setforeignlanguage {french}
+\contentsline {table}{\numberline {A.4}{\ignorespaces Glossaire des termes métier utilisés dans le rapport.}}{77}{table.A.4}%
+\xpginauxfilefalse 

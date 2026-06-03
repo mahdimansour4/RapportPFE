@@ -1,0 +1,77 @@
+\xpginauxfiletrue 
+\selectlanguage *{french}
+\contentsline {chapter}{Dédicaces}{i}{chapter*.1}%
+\contentsline {chapter}{Remerciements}{ii}{chapter*.2}%
+\contentsline {chapter}{Résumé}{iii}{chapter*.3}%
+\contentsline {chapter}{Abstract}{iv}{chapter*.4}%
+\selectlanguage *{english}
+\selectlanguage *[variant=french,autospacing=true,thincolonspace=false,autospaceguillemets=true,autospacetypewriter=false,frenchfootnote=false,frenchitemlabels=false,itemlabels=\textemdash ,itemlabeli=\textemdash ,itemlabelii=\textemdash ,itemlabeliii=\textemdash ,itemlabeliv=\textemdash ]{french}
+\selectlanguage *{french}
+\contentsline {chapter}{Liste des abréviations}{xi}{chapter*.8}%
+\contentsline {chapter}{Introduction générale}{1}{chapter*.9}%
+\contentsline {chapter}{\numberline {1}Contexte général du projet}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Présentation de l'organisme d'accueil}{4}{section.1.1}%
+\contentsline {section}{\numberline {1.2}DXC Technology Maroc}{4}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Organisation interne de DXC Maroc}{5}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Contexte du projet}{6}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Étude de l'existant}{7}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Problématique}{7}{section.1.6}%
+\contentsline {section}{\numberline {1.7}Objectifs du projet}{8}{section.1.7}%
+\contentsline {section}{\numberline {1.8}Périmètre du projet}{8}{section.1.8}%
+\contentsline {section}{\numberline {1.9}Solution proposée}{9}{section.1.9}%
+\contentsline {section}{\numberline {1.10}Apport de la solution}{9}{section.1.10}%
+\contentsline {section}{\numberline {1.11}Conclusion}{10}{section.1.11}%
+\contentsline {chapter}{\numberline {2}Plan qualité projet}{11}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Méthodologie de travail}{12}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Équipe projet}{13}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Product backlog global}{14}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Critères de validation}{15}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Planification des versions}{16}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Livrables}{18}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Gestion des risques}{18}{section.2.7}%
+\contentsline {section}{\numberline {2.8}Assurance qualité}{19}{section.2.8}%
+\contentsline {section}{\numberline {2.9}Conclusion}{20}{section.2.9}%
+\contentsline {chapter}{\numberline {3}Analyse et conception}{21}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Analyse des besoins fonctionnels}{22}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Besoins non fonctionnels}{22}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Règles métier}{23}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Données manipulées}{23}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Acteurs du système}{24}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Diagramme de cas d'utilisation}{24}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Modèle conceptuel des données}{28}{section.3.7}%
+\contentsline {section}{\numberline {3.8}Parcours utilisateur}{28}{section.3.8}%
+\contentsline {section}{\numberline {3.9}Conclusion}{30}{section.3.9}%
+\contentsline {chapter}{\numberline {4}Étude technique}{32}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Architecture globale}{33}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Justification des choix technologiques}{33}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Frontend Next.js}{35}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Choix d'ergonomie frontend}{37}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Backend Spring Boot}{37}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Authentification avec Keycloak}{37}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Module Agent IA}{38}{section.4.7}%
+\contentsline {section}{\numberline {4.8}Persistance et orchestration locale}{40}{section.4.8}%
+\contentsline {section}{\numberline {4.9}Mise en production sur Azure}{40}{section.4.9}%
+\contentsline {section}{\numberline {4.10}Outillage de développement et intégration continue}{40}{section.4.10}%
+\contentsline {section}{\numberline {4.11}Stratégie de tests}{41}{section.4.11}%
+\contentsline {section}{\numberline {4.12}Conclusion}{42}{section.4.12}%
+\contentsline {chapter}{\numberline {5}Réalisation}{43}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Version V1 : Plateforme initiale de \textit {Digital Assessment}}{44}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Version V2 : Intégration de l'Agent IA dans les flux applicatifs}{48}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Version V3 : Copilote « Build with AI » et préparation au déploiement}{51}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Version V4 : Couverture multilingue de l'IA et édition des brouillons}{52}{section.5.4}%
+\contentsline {paragraph}{Synthèse quantitative des tests.}{56}{paragraph*.58}%
+\contentsline {chapter}{Conclusion générale et perspectives}{61}{chapter*.65}%
+\contentsline {chapter}{\numberline {A}Annexes}{65}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Structure du dépôt source}{65}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Cartographie des endpoints REST}{67}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Schéma relationnel principal}{68}{section.A.3}%
+\contentsline {section}{\numberline {A.4}Extrait de la configuration Docker Compose}{68}{section.A.4}%
+\contentsline {section}{\numberline {A.5}Pipeline d'intégration continue}{70}{section.A.5}%
+\contentsline {section}{\numberline {A.6}Échelle de maturité et calcul du score}{71}{section.A.6}%
+\contentsline {section}{\numberline {A.7}Consommation atomique des invitations}{72}{section.A.7}%
+\contentsline {section}{\numberline {A.8}Configuration du reverse proxy Caddy en production}{73}{section.A.8}%
+\contentsline {section}{\numberline {A.9}Mapping des rôles Keycloak vers Spring Security}{74}{section.A.9}%
+\contentsline {section}{\numberline {A.10}Contenus multilingues~: stockage JSONB et helper \texttt {localize()}}{75}{section.A.10}%
+\contentsline {section}{\numberline {A.11}Échelle visuelle de maturité côté frontend}{76}{section.A.11}%
+\contentsline {section}{\numberline {A.12}Glossaire métier}{77}{section.A.12}%
+\xpginauxfilefalse 
